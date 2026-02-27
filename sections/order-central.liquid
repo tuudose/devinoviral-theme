@@ -3,15 +3,7 @@
     <h2>🛒 COMANDĂ URMĂRITORI/LIKE-URI</h2>
     <p>Completează linkul Instagram și selectează pachetul dorit. Vei fi redirecționat către plata securizată.</p>
   </div>
-  <button id="openOrderModal" class="btn-primary" style="margin-top:24px;">Comandă Acum</button>
-  </div>
-</section>
-
-<div id="orderModal" class="order-modal" style="display:none;position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);align-items:center;justify-content:center;">
-  <div style="background:#fff;padding:32px 24px;border-radius:16px;max-width:400px;width:90%;position:relative;box-shadow:0 8px 32px rgba(0,0,0,0.2);">
-    <button id="closeOrderModal" style="position:absolute;top:12px;right:12px;font-size:22px;background:none;border:none;cursor:pointer;">&times;</button>
-    <h3 style="margin-bottom:16px;">Finalizează Comanda</h3>
-    <form id="orderForm" class="order-form fade-up" autocomplete="off">
+    <form class="order-form fade-up" action="/products/servicii-media-instagram" method="get" style="max-width: 400px; margin: 32px auto 0 auto;">
       <label for="link">Link Instagram:</label>
       <input type="url" id="link" name="link" placeholder="https://instagram.com/contul-tau" required style="width:100%;margin-bottom:16px;">
       <label for="package">Pachet:</label>
@@ -27,25 +19,6 @@
       </select>
       <button type="submit" class="btn-primary" style="width:100%;">Continuă către plată</button>
     </form>
-  </div>
-</div>
-
-<script>
-document.getElementById('openOrderModal').onclick = function() {
-  document.getElementById('orderModal').style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-};
-document.getElementById('closeOrderModal').onclick = function() {
-  document.getElementById('orderModal').style.display = 'none';
-  document.body.style.overflow = '';
-};
-document.getElementById('orderForm').onsubmit = function(e) {
-  e.preventDefault();
-  const link = document.getElementById('link').value;
-  const packageValue = document.getElementById('package').value;
-  window.location.href = `/products/servicii-media-instagram?link=${encodeURIComponent(link)}&package=${encodeURIComponent(packageValue)}`;
-};
-</script>
 
 <script>
 // Redirecționează către pagina produsului cu pachetul selectat

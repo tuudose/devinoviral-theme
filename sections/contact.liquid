@@ -1,0 +1,39 @@
+<section class="section" id="contact" style="background: var(--bg-secondary);">
+  <div class="section-header fade-up">
+    <h2>📧 <span class="gradient-text">CONTACT</span></h2>
+    <p>Ai întrebări? Suntem aici să te ajutăm. Răspundem rapid!</p>
+  </div>
+  <div class="contact-grid fade-up">
+    <div class="contact-card">
+      <div class="contact-icon">📧</div>
+      <h4>Email</h4>
+      <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">📸</div>
+      <h4>Instagram</h4>
+      <a href="https://instagram.com/{{ section.settings.instagram }}" target="_blank">@{{ section.settings.instagram }}</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact",
+  "settings": [
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "devinoviral@proton.me"
+    },
+    {
+      "type": "text",
+      "id": "instagram",
+      "label": "Instagram username (fără @)",
+      "default": "deninoviral"
+    }
+  ],
+  "presets": [{ "name": "Contact" }]
+}
+{% endschema %}

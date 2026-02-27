@@ -1,0 +1,41 @@
+<div class="section" style="padding-top: 120px;">
+  <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+    <h1>🛒 Coșul Tău</h1>
+    {% if cart.item_count > 0 %}
+      <form action="/cart" method="post">
+        {% for item in cart.items %}
+        <div class="care-card" style="margin-bottom: 16px; text-align: left;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <h4>{{ item.product.title }}</h4>
+              <p style="color: var(--text-secondary); font-size: 14px;">{{ item.variant.title }}</p>
+              {% for property in item.properties %}
+                {% if property.last != blank %}
+                  <p style="color: var(--accent-light); font-size: 13px;">{{ property.first }}: {{ property.last }}</p>
+                {% endif %}
+              {% endfor %}
+            </div>
+            <div style="text-align: right;">
+              <div class="package-price" style="font-size: 20px;">{{ item.line_price | money }}</div>
+              <a href="/cart/change?line={{ forloop.index }}&quantity=0" style="color: var(--text-muted); font-size: 12px;">Șterge</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        <div style="margin-top: 24px; padding: 20px; border-top: 1px solid var(--border);">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <span style="font-size: 18px; font-weight: 700;">Total:</span>
+            <span class="package-price" style="font-size: 22px;">{{ cart.total_price | money }}</span>
+          </div>
+          <button type="submit" name="checkout" class="package-btn" style="width: 100%; padding: 16px; font-size: 16px;">
+            💳 Finalizează Comanda
+          </button>
+        </div>
+      </form>
+    {% else %}
+      <p style="color: var(--text-secondary); margin: 40px 0;">Coșul tău este gol.</p>
+      <a href="/" class="btn-primary">← Înapoi la Pachete</a>
+    {% endif %}
+  </div>
+</div>

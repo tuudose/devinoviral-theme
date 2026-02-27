@@ -1,0 +1,128 @@
+<section class="section" id="urmaritori">
+  <div class="section-header fade-up">
+    <h2>📦 PACHETE <span class="gradient-text">URMĂRITORI</span></h2>
+    <p>Alege pachetul potrivit și crește-ți comunitatea de pe Instagram rapid și sigur.</p>
+  </div>
+  <div class="packages-grid fade-up">
+    {% assign product = all_products[section.settings.product_handle] %}
+
+    <!-- 500 Urmăritori -->
+    <div class="package-card">
+      <span class="package-badge badge-recommended">⭐ Recomandat</span>
+      <div class="package-icon">👥</div>
+      <div class="package-amount">500</div>
+      <div class="package-type">Urmăritori</div>
+      <div class="package-price">24.99 <span class="package-currency">RON</span></div>
+      <ul class="package-features">
+        <li><span class="check">✓</span> Livrare Rapidă</li>
+        <li><span class="check">✓</span> Fără parolă</li>
+        <li><span class="check">✓</span> Profil Public necesar</li>
+        <li><span class="check">✓</span> Garanție 30 zile</li>
+      </ul>
+      {% if product %}
+        {% for variant in product.variants %}
+          {% if variant.title contains '500 Urmăritori' or variant.title contains '500 Urmaritori' %}
+            <a href="/cart/{{ variant.id }}:1" class="package-btn">⚡ Cumpără Acum</a>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <a href="/products/{{ section.settings.product_handle }}" class="package-btn">⚡ Cumpără Acum</a>
+      {% endif %}
+      <div class="package-delivery">⚡ Livrare Rapidă</div>
+    </div>
+
+    <!-- 1000 Urmăritori -->
+    <div class="package-card popular">
+      <span class="package-badge badge-popular">🔥 Cel mai vândut</span>
+      <div class="package-icon">👥</div>
+      <div class="package-amount">1000</div>
+      <div class="package-type">Urmăritori</div>
+      <div class="package-price">39.99 <span class="package-currency">RON</span></div>
+      <ul class="package-features">
+        <li><span class="check">✓</span> Livrare Rapidă</li>
+        <li><span class="check">✓</span> Fără parolă</li>
+        <li><span class="check">✓</span> Profil Public necesar</li>
+        <li><span class="check">✓</span> Garanție 30 zile</li>
+      </ul>
+      {% if product %}
+        {% for variant in product.variants %}
+          {% if variant.title contains '1000 Urmăritori' or variant.title contains '1000 Urmaritori' %}
+            <a href="/cart/{{ variant.id }}:1" class="package-btn">⚡ Cumpără Acum</a>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <a href="/products/{{ section.settings.product_handle }}" class="package-btn">⚡ Cumpără Acum</a>
+      {% endif %}
+      <div class="package-delivery">⚡ Livrare Rapidă</div>
+    </div>
+
+    <!-- 2500 Urmăritori -->
+    <div class="package-card">
+      <span class="package-badge badge-save">💸 -33%</span>
+      <div class="package-icon">👥</div>
+      <div class="package-amount">2500</div>
+      <div class="package-type">Urmăritori</div>
+      <div class="package-price">59.99 <span class="package-currency">RON</span></div>
+      <ul class="package-features">
+        <li><span class="check">✓</span> Livrare Rapidă</li>
+        <li><span class="check">✓</span> Fără parolă</li>
+        <li><span class="check">✓</span> Profil Public necesar</li>
+        <li><span class="check">✓</span> Garanție 30 zile</li>
+      </ul>
+      {% if product %}
+        {% for variant in product.variants %}
+          {% if variant.title contains '2500 Urmăritori' or variant.title contains '2500 Urmaritori' %}
+            <a href="/cart/{{ variant.id }}:1" class="package-btn">⚡ Cumpără Acum</a>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <a href="/products/{{ section.settings.product_handle }}" class="package-btn">⚡ Cumpără Acum</a>
+      {% endif %}
+      <div class="package-delivery">⚡ Livrare Rapidă</div>
+    </div>
+
+    <!-- 5000 Urmăritori -->
+    <div class="package-card">
+      <div class="package-icon">👥</div>
+      <div class="package-amount">5000</div>
+      <div class="package-type">Urmăritori</div>
+      <div class="package-price">89.99 <span class="package-currency">RON</span></div>
+      <ul class="package-features">
+        <li><span class="check">✓</span> Livrare Rapidă</li>
+        <li><span class="check">✓</span> Fără parolă</li>
+        <li><span class="check">✓</span> Profil Public necesar</li>
+        <li><span class="check">✓</span> Garanție 30 zile</li>
+      </ul>
+      {% if product %}
+        {% for variant in product.variants %}
+          {% if variant.title contains '5000 Urmăritori' or variant.title contains '5000 Urmaritori' %}
+            <a href="/cart/{{ variant.id }}:1" class="package-btn">⚡ Cumpără Acum</a>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <a href="/products/{{ section.settings.product_handle }}" class="package-btn">⚡ Cumpără Acum</a>
+      {% endif %}
+      <div class="package-delivery">⚡ Livrare Rapidă</div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Pachete Urmăritori",
+  "settings": [
+    {
+      "type": "text",
+      "id": "product_handle",
+      "label": "Product handle (URL slug)",
+      "default": "servicii-media-instagram",
+      "info": "Handle-ul produsului din Shopify (ex: servicii-media-instagram)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pachete Urmăritori"
+    }
+  ]
+}
+{% endschema %}

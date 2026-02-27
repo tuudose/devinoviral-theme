@@ -1,0 +1,16 @@
+<div class="section" style="padding-top: 120px;">
+  <div style="max-width: 800px; margin: 0 auto;">
+    <div class="section-header">
+      <h1>Toate Produsele</h1>
+    </div>
+    <div class="packages-grid">
+      {% for product in collections.all.products %}
+        <div class="package-card">
+          <h3>{{ product.title }}</h3>
+          <div class="package-price">{{ product.price | money }}</div>
+          <a href="{{ product.url }}" class="package-btn" style="margin-top: 16px;">Vezi Detalii</a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

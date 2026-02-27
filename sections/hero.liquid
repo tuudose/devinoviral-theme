@@ -1,0 +1,46 @@
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1>
+      Crește-ți contul de<br>
+      <span class="gradient-text">Instagram Instant</span>
+    </h1>
+    <p>{{ section.settings.subtitle }}</p>
+    <div class="hero-buttons">
+      <a href="#urmaritori" class="btn-primary">⚡ Cumpără Urmăritori</a>
+      <a href="#likeuri" class="btn-secondary">❤️ Cumpără Like-uri</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-number">50K+</div>
+        <div class="stat-label">Clienți Mulțumiți</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">99.8%</div>
+        <div class="stat-label">Rată Satisfacție</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Suport Clienți</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitlu",
+      "default": "Crește-ți prezența online rapid, sigur și la cele mai bune prețuri."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}

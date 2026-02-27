@@ -1,0 +1,55 @@
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>{{ shop.name }}</h3>
+      <p>Servicii social media de încredere. Crește-ți prezența online rapid, sigur și la cele mai bune prețuri.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/policies/terms-of-service">Termeni și Condiții</a></li>
+        <li><a href="/policies/privacy-policy">Politică de Confidențialitate</a></li>
+        <li><a href="/policies/shipping-policy">Politică privind Cookies</a></li>
+        <li><a href="/policies/refund-policy">Rambursare & Garanție</a></li>
+        <li><a href="https://anpc.ro" target="_blank">ANPC</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Navigare</h4>
+      <ul>
+        <li><a href="/#urmaritori">Urmăritori</a></li>
+        <li><a href="/#likeuri">Like-uri</a></li>
+        <li><a href="/#cum-functioneaza">Cum funcționează</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. Toate drepturile rezervate.</p>
+    <div class="footer-socials">
+      <a href="https://instagram.com/{{ section.settings.instagram }}" target="_blank" title="Instagram">📸</a>
+      <a href="mailto:{{ section.settings.email }}" title="Email">📧</a>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "devinoviral@proton.me"
+    },
+    {
+      "type": "text",
+      "id": "instagram",
+      "label": "Instagram username",
+      "default": "deninoviral"
+    }
+  ]
+}
+{% endschema %}

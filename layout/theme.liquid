@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ro" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page_title }} – {{ shop.name }}</title>
+  <meta name="description" content="{{ page_description | escape }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  {{ 'style.css' | asset_url | stylesheet_tag }}
+  {{ content_for_header }}
+
+  <style>
+    /* Quick critical CSS */
+    body { margin: 0; padding: 0; background: #0a0a0a; color: #fff; font-family: 'Inter', sans-serif; }
+    .shopify-section { position: relative; }
+  </style>
+</head>
+<body>
+  <!-- Particles -->
+  <div class="particles" id="particles"></div>
+
+  {% section 'header' %}
+
+  <main role="main">
+    {{ content_for_layout }}
+  </main>
+
+  {% section 'footer-main' %}
+  {% section 'cookie-banner' %}
+
+  <!-- Scroll to Top -->
+  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <script>
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      navbar && navbar.classList.toggle('scrolled', window.scrollY > 50);
+      scrollTopBtn && scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+    });
+
+    // Mobile menu
+    function toggleMenu() {
+      document.getElementById('hamburger').classList.toggle('active');
+      document.getElementById('mobileMenu').classList.toggle('active');
+      document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('active') ? 'hidden' : '';
+    }
+    function closeMenu() {
+      document.getElementById('hamburger').classList.remove('active');
+      document.getElementById('mobileMenu').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // FAQ
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const answer = item.querySelector('.faq-answer');
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('active');
+        i.querySelector('.faq-answer').style.maxHeight = '0';
+      });
+      if (!isActive) {
+        item.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    }
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Particles
+    (function() {
+      const container = document.getElementById('particles');
+      if (!container) return;
+      for (let i = 0; i < 25; i++) {
+        const p = document.createElement('div');
+        p.classList.add('particle');
+        p.style.left = Math.random() * 100 + '%';
+        p.style.animationDuration = (Math.random() * 15 + 10) + 's';
+        p.style.animationDelay = Math.random() * 20 + 's';
+        p.style.width = (Math.random() * 4 + 2) + 'px';
+        p.style.height = p.style.width;
+        container.appendChild(p);
+      }
+    })();
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        const t = document.querySelector(this.getAttribute('href'));
+        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Escape key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // Cookie
+    function acceptCookies() {
+      localStorage.setItem('cookiesAccepted', 'true');
+      document.getElementById('cookieBanner').classList.add('hidden');
+    }
+    function declineCookies() {
+      localStorage.setItem('cookiesAccepted', 'false');
+      document.getElementById('cookieBanner').classList.add('hidden');
+    }
+    if (localStorage.getItem('cookiesAccepted') !== null) {
+      const cb = document.getElementById('cookieBanner');
+      if (cb) cb.classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

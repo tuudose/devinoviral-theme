@@ -55,6 +55,40 @@
   </div>
 </div>
 
+<!-- Popup pentru Link Profil/Postare -->
+<div id="profile-link-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:white; padding:30px; border-radius:8px; max-width:500px; width:90%; box-shadow:0 4px 6px rgba(0,0,0,0.1);">
+    <h2 style="margin-top:0;">Introduceți linkul profilului sau postării</h2>
+    <p style="color:#666; font-size:14px;">Vă rugăm să introduceți linkul unde doriți serviciul (Instagram, TikTok, etc.)</p>
+    
+    <input 
+      type="url" 
+      id="profile-link-input" 
+      placeholder="https://instagram.com/..." 
+      style="width:100%; padding:12px; border:1px solid #ddd; border-radius:4px; font-size:16px; margin:15px 0;"
+      required
+    />
+    <p id="link-error" style="color:red; font-size:14px; display:none;">Vă rugăm să introduceți un URL valid</p>
+    
+    <div style="display:flex; gap:10px; margin-top:20px;">
+      <button 
+        id="cancel-modal" 
+        style="flex:1; padding:12px; background:#f0f0f0; border:none; border-radius:4px; cursor:pointer; font-size:16px;"
+      >
+        Anulează
+      </button>
+      <button 
+        id="continue-checkout" 
+        style="flex:1; padding:12px; background:#5c6ac4; color:white; border:none; border-radius:4px; cursor:pointer; font-size:16px;"
+        disabled
+      >
+        Continuă către checkout
+      </button>
+    </div>
+  </div>
+</div>
+
+
 <script>
   // Update button price on variant change
   const variantSelect = document.getElementById('variant-select');

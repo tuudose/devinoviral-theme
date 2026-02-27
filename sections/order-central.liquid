@@ -3,9 +3,7 @@
     <h2>🛒 COMANDĂ URMĂRITORI/LIKE-URI</h2>
     <p>Completează linkul Instagram și selectează pachetul dorit. Vei fi redirecționat către plata securizată.</p>
   </div>
-  <form class="order-form fade-up" action="/pages/comanda" method="get" style="max-width: 400px; margin: 0 auto;">
-    <label for="link">Link Instagram:</label>
-    <input type="url" id="link" name="link" placeholder="https://instagram.com/contul-tau" required style="width:100%;margin-bottom:16px;">
+  <form class="order-form fade-up" action="/products/servicii-media-instagram" method="get" style="max-width: 400px; margin: 0 auto;">
     <label for="package">Pachet:</label>
     <select id="package" name="package" required style="width:100%;margin-bottom:16px;">
       <option value="followers-500">500 Urmăritori - 24.99 RON</option>
@@ -19,6 +17,18 @@
     </select>
     <button type="submit" class="btn-primary" style="width:100%;">Continuă către plată</button>
   </form>
+
+<script>
+// Redirecționează către pagina produsului cu pachetul selectat
+const form = document.querySelector('.order-form');
+if (form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const packageValue = document.getElementById('package').value;
+    window.location.href = `/products/servicii-media-instagram?package=${encodeURIComponent(packageValue)}`;
+  });
+}
+</script>
 </section>
 
 {% schema %}

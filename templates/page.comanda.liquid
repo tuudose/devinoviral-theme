@@ -1,0 +1,36 @@
+<div class="section" style="padding-top: 120px;">
+  <div style="max-width: 700px; margin: 0 auto;">
+    <div class="section-header">
+      <h1>Finalizează Comanda</h1>
+    </div>
+    <form class="order-form fade-up" action="/products/servicii-media-instagram" method="get" style="color: var(--text-secondary); line-height: 1.8; font-size: 15px; max-width: 400px; margin: 0 auto;">
+      <label for="link">Link Instagram:</label>
+      <input type="url" id="link" name="link" value="{{ request.params.link }}" required style="width:100%;margin-bottom:16px;">
+      <label for="package">Pachet:</label>
+      <select id="package" name="package" required style="width:100%;margin-bottom:16px;">
+        <option value="followers-500" {% if request.params.package == 'followers-500' %}selected{% endif %}>500 Urmăritori - 24.99 RON</option>
+        <option value="followers-1000" {% if request.params.package == 'followers-1000' %}selected{% endif %}>1000 Urmăritori - 39.99 RON</option>
+        <option value="followers-2500" {% if request.params.package == 'followers-2500' %}selected{% endif %}>2500 Urmăritori - 59.99 RON</option>
+        <option value="followers-5000" {% if request.params.package == 'followers-5000' %}selected{% endif %}>5000 Urmăritori - 89.99 RON</option>
+        <option value="likes-500" {% if request.params.package == 'likes-500' %}selected{% endif %}>500 Like-uri - 19.99 RON</option>
+        <option value="likes-1000" {% if request.params.package == 'likes-1000' %}selected{% endif %}>1000 Like-uri - 29.99 RON</option>
+        <option value="likes-2500" {% if request.params.package == 'likes-2500' %}selected{% endif %}>2500 Like-uri - 49.99 RON</option>
+        <option value="likes-5000" {% if request.params.package == 'likes-5000' %}selected{% endif %}>5000 Like-uri - 69.99 RON</option>
+      </select>
+      <button type="submit" class="btn-primary" style="width:100%;">Continuă către plată</button>
+    </form>
+  </div>
+</div>
+
+<script>
+// Redirecționează către pagina produsului cu parametrii
+const form = document.querySelector('.order-form');
+if (form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const link = document.getElementById('link').value;
+    const package = document.getElementById('package').value;
+    window.location.href = `/products/servicii-media-instagram?link=${encodeURIComponent(link)}&package=${encodeURIComponent(package)}`;
+  });
+}
+</script>

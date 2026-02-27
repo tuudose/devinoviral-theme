@@ -1,48 +1,11 @@
 {
   "sections": {
-    "hero": {
-      "type": "hero",
+    "order-central": {
+      "type": "order-central",
       "settings": {}
-    },
-    "packages-followers": {
-      "type": "packages-followers",
-      "settings": {
-        "product_handle": "servicii-media-instagram"
-      }
-    },
-    "packages-likes": {
-      "type": "packages-likes",
-      "settings": {
-        "product_handle": "servicii-media-instagram"
-      }
-    },
-    "how-it-works": {
-      "type": "how-it-works",
-      "settings": {}
-    },
-    "customer-care": {
-      "type": "customer-care",
-      "settings": {}
-    },
-    "faq": {
-      "type": "faq",
-      "settings": {}
-    },
-    "contact": {
-      "type": "contact",
-      "settings": {
-        "email": "devinoviral@proton.me",
-        "instagram": "deninoviral"
-      }
     }
   },
   "order": [
-    "hero",
-    "packages-followers",
-    "packages-likes",
-    "how-it-works",
-    "customer-care",
-    "faq",
-    "contact"
+    "order-central"
   ]
 }

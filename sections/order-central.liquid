@@ -1,0 +1,30 @@
+<section class="section order-central" id="order-central">
+  <div class="section-header fade-up">
+    <h2>🛒 COMANDĂ URMĂRITORI/LIKE-URI</h2>
+    <p>Completează linkul Instagram și selectează pachetul dorit. Vei fi redirecționat către plata securizată.</p>
+  </div>
+  <form class="order-form fade-up" action="/pages/comanda" method="get" style="max-width: 400px; margin: 0 auto;">
+    <label for="link">Link Instagram:</label>
+    <input type="url" id="link" name="link" placeholder="https://instagram.com/contul-tau" required style="width:100%;margin-bottom:16px;">
+    <label for="package">Pachet:</label>
+    <select id="package" name="package" required style="width:100%;margin-bottom:16px;">
+      <option value="followers-500">500 Urmăritori - 24.99 RON</option>
+      <option value="followers-1000">1000 Urmăritori - 39.99 RON</option>
+      <option value="followers-2500">2500 Urmăritori - 59.99 RON</option>
+      <option value="followers-5000">5000 Urmăritori - 89.99 RON</option>
+      <option value="likes-500">500 Like-uri - 19.99 RON</option>
+      <option value="likes-1000">1000 Like-uri - 29.99 RON</option>
+      <option value="likes-2500">2500 Like-uri - 49.99 RON</option>
+      <option value="likes-5000">5000 Like-uri - 69.99 RON</option>
+    </select>
+    <button type="submit" class="btn-primary" style="width:100%;">Continuă către plată</button>
+  </form>
+</section>
+
+{% schema %}
+{
+  "name": "Comanda Urmăritori/Like-uri",
+  "settings": [],
+  "presets": [{ "name": "Comanda Urmăritori/Like-uri" }]
+}
+{% endschema %}

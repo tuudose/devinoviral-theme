@@ -44,17 +44,32 @@
         <li><span class="check">✓</span> Fără parolă</li>
         <li><span class="check">✓</span> Garanție completă</li>
       </ul>
+      <input type="url" class="package-link-input" placeholder="Link Instagram" style="width:100%;margin-bottom:10px;" required>
       {% if product %}
         {% for variant in product.variants %}
           {% if variant.title contains '1000 Like' %}
-            <a href="/cart/{{ variant.id }}:1" class="package-btn">⚡ Cumpără Acum</a>
+            <a href="/cart/{{ variant.id }}:1" class="package-btn" onclick="return sendLinkToMe(this)">⚡ Cumpără Acum</a>
           {% endif %}
         {% endfor %}
       {% else %}
-        <a href="/products/{{ section.settings.product_handle }}" class="package-btn">⚡ Cumpără Acum</a>
+        <a href="/products/{{ section.settings.product_handle }}" class="package-btn" onclick="return sendLinkToMe(this)">⚡ Cumpără Acum</a>
       {% endif %}
       <div class="package-delivery">⚡ Livrare Rapidă</div>
     </div>
+<script>
+function sendLinkToMe(btn) {
+  var input = btn.parentElement.querySelector('.package-link-input');
+  if (!input || !input.value) {
+    input.style.border = '2px solid #e1306c';
+    input.focus();
+    return false;
+  }
+  // Poți trimite linkul către email sau webhook aici dacă ai backend
+  // Exemplu: fetch('/save-link', {method:'POST',body:JSON.stringify({link:input.value})})
+  // Sau doar trimite-l pe email manual din comenzi
+  return true;
+}
+</script>
 
     <!-- 2500 Like-uri -->
     <div class="package-card">
